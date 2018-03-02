@@ -16,6 +16,9 @@ public class tttUI {
     private JLabel round;
     private JButton breset;
 
+
+
+
     private int[][] victory_array = new int[3][3];
 
     private boolean flag_round;
@@ -137,10 +140,7 @@ public class tttUI {
         }
     }
 
-    public void bxx_action(JButton bxx)
-    {
-        bxx.addActionListener(button_action(bxx));
-    }
+
 
     private ActionListener button_action(JButton bxx) {
         return new ActionListener() {
@@ -154,12 +154,10 @@ public class tttUI {
                         if(flag_round)
                         {
                             bxx.setText("X");
-//                        round.setText("Kolejka Y");
                         }
                         else
                         {
                             bxx.setText("Y");
-//                        round.setText("Kolejka X");
                         }
                         bxx.setEnabled(false);
                     }
@@ -183,16 +181,17 @@ public class tttUI {
 
     public tttUI()
     {
-        bxx_action(b00);
-//        b00.addActionListener(button_action());
-        bxx_action(b01);
-        bxx_action(b02);
-        bxx_action(b10);
-        bxx_action(b11);
-        bxx_action(b12);
-        bxx_action(b20);
-        bxx_action(b21);
-        bxx_action(b22);
+        b00.addActionListener(button_action(b00));
+        b01.addActionListener(button_action(b01));
+        b02.addActionListener(button_action(b02));
+        b10.addActionListener(button_action(b10));
+        b11.addActionListener(button_action(b11));
+        b12.addActionListener(button_action(b12));
+        b20.addActionListener(button_action(b20));
+        b21.addActionListener(button_action(b21));
+        b22.addActionListener(button_action(b22));
+
+
         flag_round=true;
         flag_winner=false;
         round.setText("Kolejka X");
@@ -233,9 +232,6 @@ public class tttUI {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
-
-
-
 
 
     }
